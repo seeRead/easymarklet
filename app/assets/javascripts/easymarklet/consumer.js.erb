@@ -16,16 +16,16 @@
     var consumer_url = encodeURIComponent(document.location);
     // Try to determine the protocol to be used based on the current page
     var protocol = (document.location.href.substring(0,8) === 'https') ? 'https' : 'http'
-    // Allow protocol to be overridden by the bookmarklet definition
-    if(bookmarklet.protocol){
-      protocol = bookmarklet.protocol;
-    }
-    var host = '<%= Rails.application.config.domain %>';
-    var port = '<%= Rails.application.config.port  %>';
-    // Allow port to be overriden by the bookmarklet definition - useful for ssl
-    if(bookmarklet.port) {
-      port = bookmarklet.port;
-    }
+    var host
+    var port
+    <% if (url_options = Rails.application.config.action_controller.default_url_options) %>
+      host = '<%= url_options[:host] %>';
+      port = '<%= url_options[:port] %>';
+    <% end %>
+    // Allow params to be overridden by the bookmarklet definition
+    if(bookmarklet.protocol){ protocol = bookmarklet.protocol; }
+    if(bookmarklet.port)    { port     = bookmarklet.port; }
+    if(bookmarklet.host)    { host     = bookmarklet.host; }
     port = port === '' ? '' : ':' + port;
     var full_host = protocol  + '://' + host + port;
 
