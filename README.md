@@ -3,6 +3,9 @@ Easymarklet
 
 The easiest way to create bookmarklets for your rails app.
 
+SEEREAD changes: we use `ENV['HOST']` and `ENV['PORT']`
+
+
 [Visit "Foo vs Baz" for demos and explanations of several types of bookmarklets.](http://foo-vs-baz.herokuapp.com/)
 
 [Also, see the source code for "Foo vs Baz".](https://github.com/Octo-Labs/foo_vs_baz)

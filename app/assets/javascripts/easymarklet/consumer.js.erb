@@ -20,8 +20,8 @@
     if(bookmarklet.protocol){
       protocol = bookmarklet.protocol;
     }
-    var host = '<%= Rails.application.config.host %>';
-    var port = '<%= Rails.application.config.port  %>';
+    var host = '<%= ENV['HOST'] %>';
+    var port = '<%= ENV['PORT']  %>';
     // Allow port to be overriden by the bookmarklet definition - useful for ssl
     if(bookmarklet.port) {
       port = bookmarklet.port;
