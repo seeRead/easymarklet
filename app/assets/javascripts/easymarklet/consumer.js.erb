@@ -14,14 +14,17 @@
     var easymarkletDiv = null;
 
     var consumer_url = encodeURIComponent(document.location);
-    // Try to determine the protocol to be used based on the current page
-    var protocol = (document.location.href.substring(0,8) === 'https') ? 'https' : 'http'
     // Allow protocol to be overridden by the bookmarklet definition
+    var host = '<%= ENV['HOST'] %>';
+    var port = '';
+    <% if Rails.env.production? or Rails.env.staging?%>
+      var protocol = 'https';
+    <% else  %>
+      var port = '3000';
+    <% end %>
     if(bookmarklet.protocol){
       protocol = bookmarklet.protocol;
     }
-    var host = '<%= ENV['HOST'] %>';
-    var port = '<%= ENV['PORT']  %>';
     // Allow port to be overriden by the bookmarklet definition - useful for ssl
     if(bookmarklet.port) {
       port = bookmarklet.port;
