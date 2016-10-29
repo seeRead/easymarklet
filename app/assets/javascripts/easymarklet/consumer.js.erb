@@ -139,7 +139,7 @@
       for(var i = 0; i<bookmarklet.consumer.css.length; i++){
         var src = bookmarklet.consumer.css[i]
         var css = document.createElement('LINK');
-        css.href = src;
+        css.href = full_host + src;
         css.type = 'text/css';
         css.media = 'screen';
         css.rel = 'stylesheet';
