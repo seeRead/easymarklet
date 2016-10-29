@@ -107,7 +107,7 @@
       // load easyXDM
       s1 = document.createElement("script");
       s1.type = "text/javascript";
-      s1.src = full_host + "/assets/easyXDM.js";
+      s1.src = asset_path("easyXDM.js");
       s1.onreadystatechange = function(){
           if (this.readyState === "complete" || this.readyState === "loaded") {
               scriptOnLoad();
